@@ -23,9 +23,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clickregister(){
+  clicklogin(){
     this.auth.signInWithEmailAndPassword(this.login.controls.email.value, this.login.controls.password.value).then(rez =>{
      this.router.navigateByUrl('/')
+    }, e => {
+      this.login.setErrors({
+        backend: e.message
+      });
     })
 
     

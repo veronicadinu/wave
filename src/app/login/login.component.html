@@ -3,6 +3,8 @@
 
         <div>Login</div>
         
+        <mat-error *ngIf="login.hasError('backend')">{{login.errors.backend}}</mat-error>
+
         <mat-form-field style="min-width: 250px; width: 60%;"  class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
             <input formControlName="email" type="email" matInput placeholder="" value="">
@@ -26,7 +28,7 @@
          </div>
 
          <br>
-          <button [disabled]="login.invalid" (click)="clickregister()" mat-raised-button color="primary">Sign in</button>
+          <button [disabled]="login.invalid" (click)="clicklogin()" mat-raised-button color="primary">Sign in</button>
 
           <br>
           <button (click)="clicklogingoogle()" mat-raised-button color="primary">Login with Google</button>

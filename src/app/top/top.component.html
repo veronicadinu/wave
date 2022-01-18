@@ -1,4 +1,18 @@
+<mat-toolbar color="primary">
+    <button *ngIf="mobil" (click)="clickMeniu()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+     <mat-icon>menu</mat-icon>
+   </button>
+   <span>My App</span>
+   <span fxFlex class="example-spacer"></span>
+   <button [matMenuTriggerFor]="menu" mat-icon-button>
+    <mat-icon *ngIf="user == null">more_vert</mat-icon>
+    <img style="height: 100%; border-radius: 50%;" [src]="user.photoURL" *ngIf="user != null" />
+  </button>
+ </mat-toolbar>
 
-
-
-
+<mat-menu #menu="matMenu">
+  <button *ngIf="user != null" (click)="logout()" mat-menu-item>
+    <mat-icon>exit_to_app</mat-icon>  
+    Logout
+  </button>
+</mat-menu>

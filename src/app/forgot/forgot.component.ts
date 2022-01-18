@@ -22,8 +22,14 @@ export class ForgotComponent implements OnInit {
 
   clicksend(){
     this.auth.sendPasswordResetEmail(this.forgot.controls.email.value).then(rez =>{
-      this.router.navigateByUrl('/')
-      
+      this.router.navigateByUrl('/login')
+      this.snach.open('Email was sent, please check your inbox', 'close', {
+        duration: 5000
+      })
+    },e => {
+      this.forgot.setErrors({
+        backend: e.message
+      });
     })
 
   }

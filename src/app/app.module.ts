@@ -9,9 +9,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatMenuModule} from '@angular/material/menu';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
@@ -32,6 +34,7 @@ import { TopComponent } from './top/top.component';
 import { BottomComponent } from './bottom/bottom.component';
 import { environment } from 'src/environments/environment';
 import { ForgotComponent } from './forgot/forgot.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,7 @@ import { ForgotComponent } from './forgot/forgot.component';
     FormsModule,
     MatToolbarModule,
     ReactiveFormsModule,
-    
+    AngularFireAuthModule,
     MatIconModule,
     MatButtonModule,
     MatInputModule,
@@ -68,7 +71,8 @@ import { ForgotComponent } from './forgot/forgot.component';
     AngularFirestoreModule,
     MatTabsModule,
     MatSidenavModule,
-  
+    FlexLayoutModule,
+    MatMenuModule
 
   ],
   providers: [],

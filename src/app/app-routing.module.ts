@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminGuard } from './services/admin-guard.guard';
 import { TrainingComponent } from './training/training.component';
 
 const routes: Routes = [
@@ -47,19 +48,22 @@ const routes: Routes = [
 
 {
   path:'admin',
-  component: AdminComponent
+  component: AdminComponent,
+  canActivate: [AdminGuard]
 }
 ,
 
 {
   path:'addTraining',
-  component: AddTrainingComponent
+  component: AddTrainingComponent,
+  canActivate: [AdminGuard]
 }
 ,
 
 {
   path:'addRecovery',
-  component: AddRecoveryComponent
+  component: AddRecoveryComponent,
+  canActivate: [AdminGuard]
 },
 
 {

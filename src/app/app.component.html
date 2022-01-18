@@ -1,11 +1,19 @@
 <div style="display: flex; flex-direction: column; height: 100%; width: 100%;">
-    <app-top></app-top>
-
-    <div style="flex: auto; min-height: 0px;" >
-        <router-outlet></router-outlet>
-        
-    </div>
-
+    <app-top *ngIf="!areBarsHidden" [mobil]="isMobile" [bara]="drawer"></app-top>
+    <mat-drawer-container fxFlex class="example-container" autosize>
+        <mat-drawer *ngIf="!areBarsHidden" [opened]="!isMobile" #drawer class="example-sidenav" [mode]="isMobile ? 'over' : 'side'">
+          <p>Auto-resizing sidenav</p>
+          <p>Lorem, ipsum dolor sit amet consectetur.</p>
+          
+        </mat-drawer>
+      
+        <mat-drawer-content fxFlex>
+            <div class="example-sidenav-content" fxFlex>
+                <router-outlet></router-outlet>
+              </div>
+        </mat-drawer-content>
+      
+      </mat-drawer-container>
     <app-bottom></app-bottom>
 
 </div>
