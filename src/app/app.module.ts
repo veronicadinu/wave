@@ -7,10 +7,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -55,6 +57,7 @@ import { ForgotComponent } from './forgot/forgot.component';
     FormsModule,
     MatToolbarModule,
     ReactiveFormsModule,
+    
     MatIconModule,
     MatButtonModule,
     MatInputModule,
@@ -62,7 +65,10 @@ import { ForgotComponent } from './forgot/forgot.component';
     MatSnackBarModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    MatTabsModule,
+    MatSidenavModule,
+  
 
   ],
   providers: [],
