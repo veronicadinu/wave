@@ -1,0 +1,28 @@
+<form style="width: 100%; height: 100%; " [formGroup]="register">
+    <div id="register">
+
+        <div>Create account</div>
+        
+        <mat-form-field style="min-width: 250px; width: 60%;"  class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="" value="">
+           <mat-error *ngIf="register.controls.email.hasError('required')">Email is invalid</mat-error>
+           <mat-error  *ngIf="register.controls.email.hasError('invalid')">Email is required</mat-error>
+          </mat-form-field>
+        
+          <mat-form-field style="min-width: 250px; width: 60%;"   class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" [type]="inputType" matInput placeholder="" value="">
+            <mat-error *ngIf="register.controls.password.hasError('required')">Password is invalid</mat-error>
+            <button color="warn"  (click)="clickVisibility()" matSuffix mat-icon-button>
+              <mat-icon>{{inputType == 'password' ? 'visibility' : 'visibility_off'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        
+          <button [disabled]="register.invalid" (click)="clickregister()" mat-raised-button color="primary">Register</button>
+          <br>
+          <a routerLink="/login"  href="">or Login</a>
+        
+        
+        </div>
+</form> 

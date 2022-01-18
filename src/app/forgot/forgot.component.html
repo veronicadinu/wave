@@ -1,0 +1,23 @@
+
+<form style="width: 100%; height: 100%; " [formGroup]="forgot">
+    <div id="forgot">
+
+        <h1>Create new password</h1>
+        <h4>Please enter your email address</h4>
+        <br>
+        
+        <mat-form-field style="min-width: 250px; width: 60%;"  class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" type="email" matInput placeholder="" value="">
+           <mat-error *ngIf="forgot.controls.email.hasError('required')">Email is invalid</mat-error>
+           <mat-error  *ngIf="forgot.controls.email.hasError('invalid')">Email is required</mat-error>
+          </mat-form-field>
+        
+          <br>
+        
+          <button [disabled]="forgot.invalid" (click)="clicksend()" mat-raised-button color="primary">Create password</button>
+      
+        
+        
+        </div>
+</form> 
