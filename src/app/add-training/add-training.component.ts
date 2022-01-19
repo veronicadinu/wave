@@ -65,4 +65,7 @@ export class AddTrainingComponent implements OnInit {
     })
   }
 
+  clickDeletePhoto() {
+    this.add.controls.photo.setValue(null)
+  }
 }
