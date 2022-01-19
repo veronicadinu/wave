@@ -1,72 +1,42 @@
 <div class="row g-0">
   <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    
     <form class="p-5" [formGroup]="add">
       <h1>Training</h1>
       <br />
+
       <mat-form-field
-        style="width: 100%"
-        class="example-full-width"
-        appearance="fill"
-      >
+        style="width: 100%" class="example-full-width"  appearance="fill"  >
         <mat-label>Name</mat-label>
-        <input
-          formControlName="name"
-          type="text"
-          matInput
-          placeholder=""
-          value=""
-        />
+        <input formControlName="name" type="text"  matInput placeholder=""   value=""/>
       </mat-form-field>
+          
       <br />
-      <mat-form-field
-        style="width: 100%"
-        class="example-full-width"
-        appearance="fill"
-      >
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill" >
         <mat-label>Text</mat-label>
         <textarea formControlName="text" matInput placeholder=""></textarea>
       </mat-form-field>
+
       <br />
-      <mat-form-field
-        style="width: 100%"
-        class="example-full-width"
-        appearance="fill"
-      >
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
         <mat-label>Price</mat-label>
         <input formControlName="price" type="number" matInput placeholder="$" />
       </mat-form-field>
       <br />
-      <input
-        (change)="changeImg($event)"
-        accept="image/*"
-        style="display: none"
-        #inp
-        type="file"
-      />
-      <div fxLayout="row" fxLayoutAlign="center">
-        <button
-          type="button"
-          (click)="inp.click()"
-          mat-raised-button
-          color="secondary"
-        >
-          Upload photo
-        </button>
-      </div>
-      <br />
 
-      <div
-        *ngIf="add.controls.photo.value != null"
-        fxLayout="row"
-        fxLayoutAlign="center"
-      >
+      <input (change)="changeImg($event)" accept="image/*" style="display: none" #inp type="file"/>
+        
+      <div fxLayout="row" fxLayoutAlign="center">
+        <button type="button" (click)="inp.click()" mat-raised-button color="secondary" >Upload photo</button>
+      </div>
+
+      <br />
+      <div  *ngIf="add.controls.photo.value != null" fxLayout="row" fxLayoutAlign="center">
         <mat-card style="width: 180px !important">
           <mat-card-content>
-            <img
-              [src]="add.controls.photo.value"
-              style="width: 150px; height: auto"
-            />
+            <img [src]="add.controls.photo.value" style="width: 150px; height: auto" />
           </mat-card-content>
+
           <mat-card-actions>
             <button (click)="clickDeletePhoto()" color="warn" mat-icon-button>
               <mat-icon>delete</mat-icon>
@@ -74,18 +44,12 @@
           </mat-card-actions>
         </mat-card>
       </div>
-      <br />
 
+      <br />
       <div fxLayout="row" fxLayoutAlign="center">
-        <button
-          type="submit"
-          (click)="clicksave()"
-          mat-raised-button
-          color="primary"
-        >
-          Save
-        </button>
+        <button type="submit" (click)="clicksave()"  mat-raised-button color="primary" >Save</button>
       </div>
+
     </form>
   </div>
 </div>

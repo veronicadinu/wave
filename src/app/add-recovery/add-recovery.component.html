@@ -1,1 +1,55 @@
-<p>add-recovery works!</p>
+<div class="row g-0">
+    <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+      
+      <form class="p-5" [formGroup]="add">
+        <h1>Recovery</h1>
+        <br />
+  
+        <mat-form-field
+          style="width: 100%" class="example-full-width"  appearance="fill"  >
+          <mat-label>Name</mat-label>
+          <input formControlName="name" type="text"  matInput placeholder=""   value=""/>
+        </mat-form-field>
+            
+        <br />
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill" >
+          <mat-label>Text</mat-label>
+          <textarea formControlName="text" matInput placeholder=""></textarea>
+        </mat-form-field>
+  
+        <br />
+        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input formControlName="price" type="number" matInput placeholder="$" />
+        </mat-form-field>
+        <br />
+  
+        <input (change)="changeVideo($event)" accept="video/*" style="display: none" #inp type="file"/>
+          
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button type="button" (click)="inp.click()" mat-raised-button color="secondary" >Upload video</button>
+        </div>
+  
+        <br />
+        <div  *ngIf="add.controls.video.value != null" fxLayout="row" fxLayoutAlign="center">
+          <mat-card style="width: 180px !important">
+            <mat-card-content>
+              <video  style="width: 150px; height: auto" [src]="add.controls.video.value"></video>
+            </mat-card-content>
+  
+            <mat-card-actions>
+              <button (click)="clickDeleteVideo()" color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+  
+        <br />
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button type="submit" (click)="clicksave()"  mat-raised-button color="primary" >Save</button>
+        </div>
+  
+      </form>
+    </div>
+  </div>

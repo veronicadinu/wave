@@ -27,6 +27,11 @@ export class RegisterComponent implements OnInit {
   clickregister(){
     this.auth.createUserWithEmailAndPassword(this.register.controls.email.value, this.register.controls.password.value).then(rez =>{
       this.router.navigateByUrl('/login')
+    },  e => {
+      this.register.setErrors({
+        backend: e.message
+      });
+
     })
 
 

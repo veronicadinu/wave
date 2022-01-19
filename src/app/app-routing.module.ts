@@ -78,7 +78,7 @@ const routes: Routes = [
 
 {
   path:'editRecovery/:id',
-  component: AddTrainingComponent,
+  component:AddRecoveryComponent ,
   canActivate: [AdminGuard]
 },
 
