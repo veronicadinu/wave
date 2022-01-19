@@ -14,6 +14,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import {MatTabsModule} from '@angular/material/tabs';
 
 
@@ -35,7 +36,8 @@ import { BottomComponent } from './bottom/bottom.component';
 import { environment } from 'src/environments/environment';
 import { ForgotComponent } from './forgot/forgot.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { DonateComponent } from './donate/donate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AddRecoveryComponent,
     TopComponent,
     BottomComponent,
-    ForgotComponent
+    ForgotComponent,
+    SidebarComponent,
+    DonateComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatToolbarModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     MatIconModule,
     MatButtonModule,
     MatInputModule,

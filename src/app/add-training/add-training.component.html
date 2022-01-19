@@ -1,1 +1,64 @@
-<p>add-training works!</p>
+<div class="row g-0">
+  <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+    <form class="p-5" [formGroup]="add">
+      <h1>Training</h1>
+      <br />
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input
+          formControlName="name"
+          type="text"
+          matInput
+          placeholder=""
+          value=""
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Text</mat-label>
+        <textarea formControlName="text" matInput placeholder=""></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
+        <mat-label>Price</mat-label>
+        <input formControlName="price" type="number" matInput placeholder="$" />
+      </mat-form-field>
+      <br />
+      <input
+        (change)="changeImg($event)"
+        accept="image/*"
+        style="display: none"
+        #inp
+        type="file"
+      />
+      <button
+        type="button"
+        (click)="inp.click()"
+        mat-raised-button
+        color="secondary"
+      >
+        Upload photo
+      </button>
+      <br />
+      <mat-card style="width: 180px !important" *ngIf="add.controls.photo.value != null">
+        <mat-card-content>
+          <img
+            [src]="add.controls.photo.value"
+            style="width: 150px; height: auto"
+          />
+        </mat-card-content>
+        <mat-card-actions>
+          <button color="warn" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+      <br />
+    
+      <button type="submit" (click)="clicksave()" mat-raised-button color="primary">
+        Save
+      </button>
+    </form>
+    
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { AddRecoveryComponent } from './add-recovery/add-recovery.component';
 import { AddTrainingComponent } from './add-training/add-training.component';
 import { AdminComponent } from './admin/admin.component';
 import { ContactComponent } from './contact/contact.component';
+import { DonateComponent } from './donate/donate.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -43,32 +44,52 @@ const routes: Routes = [
 {
   path:'contact',
   component: ContactComponent
-}
-,
+},
+
 
 {
   path:'admin',
   component: AdminComponent,
   canActivate: [AdminGuard]
-}
-,
+},
+
 
 {
   path:'addTraining',
   component: AddTrainingComponent,
   canActivate: [AdminGuard]
-}
-,
+},
+
+
+
+{
+  path:'editTraining/:id',
+  component: AddTrainingComponent,
+  canActivate: [AdminGuard]
+},
+
 
 {
   path:'addRecovery',
-  component: AddRecoveryComponent,
+  component: AddRecoveryComponent, 
+  canActivate: [AdminGuard]
+},
+
+
+{
+  path:'editRecovery/:id',
+  component: AddTrainingComponent,
   canActivate: [AdminGuard]
 },
 
 {
   path:'forgot',
   component: ForgotComponent
+},
+
+{
+  path:'donate',
+  component: DonateComponent
 }
 
 
