@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
     this.auth.user.subscribe(u => {
       this.user = u;
       this.firestore.doc(`users/${this.user?.email}`).valueChanges().subscribe((doc: any) => {
-        if (doc.role == 'admin') {
+        if (doc?.role == 'admin') {
           this.isAdmin = true;
         } else {
           this.isAdmin = false;
