@@ -4,5 +4,5 @@
     <button routerLink="/recovery" mat-raised-button color="primary"><mat-icon>pool</mat-icon> Recovery</button>
     <button routerLink="/contact" mat-raised-button color="primary"><mat-icon>contact_support</mat-icon> Contact</button>
     <button routerLink="/donate" mat-raised-button color="primary"><mat-icon>savings</mat-icon> Donate</button>
-    <button *ngIf="user != null && isAdmin == true" routerLink="/admin" mat-raised-button color="primary"><mat-icon>admin_panel_settings</mat-icon> Admin</button>
+    <button *ngIf="user != null && isAdmin === true" routerLink="/admin" mat-raised-button color="primary"><mat-icon>admin_panel_settings</mat-icon> Admin</button>
 </div>
