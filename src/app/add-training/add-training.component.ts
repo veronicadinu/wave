@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,10 @@ export class AddTrainingComponent implements OnInit {
     text: new FormControl(),
     price: new FormControl(0),
     photo: new FormControl(),
+    categoryId: new FormControl('',[Validators.required])
   });
+
+  category: any = []
 
 
   constructor(public baza: AngularFirestore, public storages: AngularFireStorage, public router: Router, public route: ActivatedRoute) { }
@@ -34,6 +37,10 @@ export class AddTrainingComponent implements OnInit {
       }
 
 
+    })
+
+    this.baza.collection('categT').valueChanges({idField:'id'}).subscribe(rez2 =>{
+      this.category = rez2
     })
 
 

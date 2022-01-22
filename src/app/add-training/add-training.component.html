@@ -24,6 +24,16 @@
       </mat-form-field>
       <br />
 
+      <mat-form-field style="width: 100%" appearance="fill">
+        <mat-label>Select category</mat-label>
+        <mat-select formControlName="categoryId" disableRipple>
+          <mat-option *ngFor="let c of category" [value]="c.id">{{c.name}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="add.controls.categoryId.hasError('required')" >Select Category is required</mat-error>
+      </mat-form-field>
+
+      <br>
+
       <input (change)="changeImg($event)" accept="image/*" style="display: none" #inp type="file"/>
         
       <div fxLayout="row" fxLayoutAlign="center">

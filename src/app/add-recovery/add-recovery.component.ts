@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -15,11 +15,14 @@ export class AddRecoveryComponent implements OnInit {
     name: new FormControl(),
     text: new FormControl(),
     video: new FormControl(),
-    price: new FormControl()
+    price: new FormControl(),
+    categoryId: new FormControl('', [Validators.required])
 
   })
 
   id: string;
+
+  category:any = []
 
   constructor(public baza: AngularFirestore, public storage: AngularFireStorage, public route: ActivatedRoute, public router: Router) { }
 
@@ -32,6 +35,10 @@ export class AddRecoveryComponent implements OnInit {
           this.add.patchValue(rez1)
         })
       }
+    })
+
+    this.baza.collection('categR').valueChanges({idField:'id'}).subscribe(rez2 =>{
+      this.category = rez2
     })
   }
 

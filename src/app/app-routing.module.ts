@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddRecoveryComponent } from './add-recovery/add-recovery.component';
 import { AddTrainingComponent } from './add-training/add-training.component';
 import { AdminComponent } from './admin/admin.component';
+import { CategoryRecoveryComponent } from './category-recovery/category-recovery.component';
+import { CategoryTrainingComponent } from './category-training/category-training.component';
+import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { DonateComponent } from './donate/donate.component';
 import { ForgotComponent } from './forgot/forgot.component';
@@ -90,7 +93,35 @@ const routes: Routes = [
 {
   path:'donate',
   component: DonateComponent
+},
+
+{
+  path:'category',
+  component: CategoryComponent
+},
+
+{
+  path:'category/recovery',
+  component: CategoryRecoveryComponent
+},
+
+{
+  path:'category/training',
+  component: CategoryTrainingComponent
+},
+
+{
+  path:'category/recovery/:id',
+  component: CategoryRecoveryComponent
+},
+
+{
+  path:'category/training/:id',
+  component: CategoryTrainingComponent
 }
+
+
+
 
 
 

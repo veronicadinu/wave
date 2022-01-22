@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -38,6 +39,9 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DonateComponent } from './donate/donate.component';
+import { CategoryComponent } from './category/category.component';
+import { CategoryRecoveryComponent } from './category-recovery/category-recovery.component';
+import { CategoryTrainingComponent } from './category-training/category-training.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +59,9 @@ import { DonateComponent } from './donate/donate.component';
     ForgotComponent,
     SidebarComponent,
     DonateComponent,
+    CategoryComponent,
+    CategoryRecoveryComponent,
+    CategoryTrainingComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +84,8 @@ import { DonateComponent } from './donate/donate.component';
     MatTabsModule,
     MatSidenavModule,
     FlexLayoutModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSelectModule
 
   ],
   providers: [],

@@ -2,7 +2,7 @@
     <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
       
       <form class="p-5" [formGroup]="add">
-        <h1>Recovery</h1>
+        <h1>Category-Training</h1>
         <br />
   
         <mat-form-field
@@ -18,37 +18,21 @@
         </mat-form-field>
   
         <br />
-        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
-          <mat-label>Price</mat-label>
-          <input formControlName="price" type="number" matInput placeholder="$" />
-        </mat-form-field>
-        <br />
-
-        <mat-form-field style="width: 100%" appearance="fill">
-          <mat-label>Select category</mat-label>
-          <mat-select formControlName="categoryId" disableRipple>
-            <mat-option *ngFor="let c of category" [value]="c.id">{{c.name}}</mat-option>
-          </mat-select>
-          <mat-error *ngIf="add.controls.categoryId.hasError('required')" >Select Category is required</mat-error>
-        </mat-form-field>
-
-        <br>
-  
-        <input (change)="changeVideo($event)" accept="video/*" style="display: none" #inp type="file"/>
+        <input (change)="changeImg($event)" accept="image/*" style="display: none" #inp type="file"/>
           
         <div fxLayout="row" fxLayoutAlign="center">
-          <button type="button" (click)="inp.click()" mat-raised-button color="secondary" >Upload video</button>
+          <button type="button" (click)="inp.click()" mat-raised-button color="secondary" >Upload photo</button>
         </div>
   
         <br />
-        <div  *ngIf="add.controls.video.value != null" fxLayout="row" fxLayoutAlign="center">
+        <div  *ngIf="add.controls.photo.value != null" fxLayout="row" fxLayoutAlign="center">
           <mat-card style="width: 180px !important">
             <mat-card-content>
-              <video  style="width: 150px; height: auto" [src]="add.controls.video.value"></video>
+              <img [src]="add.controls.photo.value" style="width: 150px; height: auto" />
             </mat-card-content>
   
             <mat-card-actions>
-              <button (click)="clickDeleteVideo()" color="warn" mat-icon-button>
+              <button (click)="clickDeletePhoto()" color="warn" mat-icon-button>
                 <mat-icon>delete</mat-icon>
               </button>
             </mat-card-actions>
@@ -63,3 +47,4 @@
       </form>
     </div>
   </div>
+  

@@ -2,7 +2,7 @@
     <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
       
       <form class="p-5" [formGroup]="add">
-        <h1>Recovery</h1>
+        <h1>Category-Recovery</h1>
         <br />
   
         <mat-form-field
@@ -17,23 +17,8 @@
           <textarea formControlName="text" matInput placeholder=""></textarea>
         </mat-form-field>
   
+   
         <br />
-        <mat-form-field style="width: 100%" class="example-full-width" appearance="fill">
-          <mat-label>Price</mat-label>
-          <input formControlName="price" type="number" matInput placeholder="$" />
-        </mat-form-field>
-        <br />
-
-        <mat-form-field style="width: 100%" appearance="fill">
-          <mat-label>Select category</mat-label>
-          <mat-select formControlName="categoryId" disableRipple>
-            <mat-option *ngFor="let c of category" [value]="c.id">{{c.name}}</mat-option>
-          </mat-select>
-          <mat-error *ngIf="add.controls.categoryId.hasError('required')" >Select Category is required</mat-error>
-        </mat-form-field>
-
-        <br>
-  
         <input (change)="changeVideo($event)" accept="video/*" style="display: none" #inp type="file"/>
           
         <div fxLayout="row" fxLayoutAlign="center">
@@ -63,3 +48,4 @@
       </form>
     </div>
   </div>
+
