@@ -1,1 +1,55 @@
-<p>training works!</p>
+
+
+
+<div class="row g-0">
+
+    <div class="col-12 col-lg-3 p-2 ">
+    <mat-accordion *ngFor="let c of category">
+        <mat-expansion-panel (click)="clickcategory(c, $event)">
+          <mat-expansion-panel-header>
+            <mat-panel-title >
+              <span *ngIf="c != selectedCategory">{{c.name}}</span>
+              <b *ngIf="c == selectedCategory">{{c.name}}</b>
+            </mat-panel-title>
+            <mat-panel-description>
+        
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>{{c.text}}</p>
+        </mat-expansion-panel>
+        <br>
+      </mat-accordion>
+</div>
+
+
+<div class="col-12  col-lg-9 p-2">
+
+   <div class="row g-0">
+
+
+  <div *ngFor="let t of training" class="col-12 col-sm-6 col-lg-4 p-2">
+    <mat-card  class="example-card">
+        <mat-card-title-group>
+          <mat-card-title routerLink="/view/training/{{t.id}}">{{t.name}}</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+          <img *ngIf="t.photo" mat-card-sm-image style="object-fit: contain;" [src]="t.photo" >
+          <img *ngIf="!t.photo" mat-card-sm-image style="object-fit: contain;" src="/assets/img/training.svg" >
+        </mat-card-title-group>
+        <mat-card-content>
+         {{t.text}}
+        </mat-card-content>
+      </mat-card>
+  </div>
+
+
+  
+   </div>
+
+
+</div>
+
+</div>
+
+
+
+

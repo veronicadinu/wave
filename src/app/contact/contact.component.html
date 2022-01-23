@@ -1,3 +1,66 @@
-<p>contact works!</p>
-mod1
-asd
+<div style="background-image: url(assets/images/back.jpg); background-repeat: no-repeat; background-size: cover;" >
+
+    <div style="display: flex; justify-content: center; padding: 10px;" >
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.6367416580892!2d26.124049115324752!3d44.42009937910245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1fee131eaa285%3A0x1ddb7e047c0b9d53!2sBucure%C8%99ti%20Mall!5e0!3m2!1sro!2sro!4v1642888889718!5m2!1sro!2sro" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    
+    <br>
+  
+  
+    <form [formGroup] ="contact" style="display: flex; flex-direction: column; align-items: center; padding: 20px;" >
+  
+      <h2 style=" text-align: center;">At your disposal for information and reservations</h2>
+        <h2 >I will be happy to answer you as soon as possible!</h2>
+        <h1>Greetings.</h1>
+  
+  
+  
+  
+  
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" type="text" matInput placeholder="" value="">
+        <mat-error *ngIf="contact.controls.name.hasError('required')" >Name is required</mat-error>
+      </mat-form-field>
+  
+  
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" type="email" matInput placeholder="" value="">
+        <mat-error *ngIf="contact.controls.email.hasError('required')" >Email is required!</mat-error>
+        <mat-error *ngIf="contact.controls.email.hasError('email')" >Email is invalid</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input formControlName="tel" type="number" matInput placeholder="" value="">
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Write a messagess</mat-label>
+        <textarea formControlName="msg"  rows="4" matInput placeholder="" ></textarea>
+        <mat-error *ngIf="contact.controls.msg.hasError('required')" >Massagess is required!</mat-error>
+  
+      </mat-form-field>
+  
+      <button [disabled]="contact.invalid" (click)="clicksave()"  mat-raised-button color="primary">Send</button>
+  
+  
+  
+  
+    </form>
+  <br>
+  
+  
+  <div style="width: 100%; text-align: center; display: flex; flex-direction: column; justify-content: center; top: 60%; left: 0; padding: 10px; " >
+    <h1 routerLink='/contact' ><b>CONTACT</b></h1>
+    <a href="tel:+0727451355" ><mat-icon>phone</mat-icon><b>0727451355</b> </a>
+    <a href="mailto:alexandru536@gmail.com" ><mat-icon>email</mat-icon><b>alexandru536@gmail.com</b> </a>
+    <a href="" ><mat-icon>fmd_good</mat-icon><b>Strada Libertatii nr 105 sector 2 , Bucuresti </b></a>
+    <a href="https://www.facebook.com/Come-Nelle-Favole-Creazioni-Byby-110156601263630" ><mat-icon>facebook</mat-icon></a>
+  
+  
+  </div>
+  
+  
+  </div>

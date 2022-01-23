@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -12,7 +14,13 @@ export class AdminComponent implements OnInit {
 
   recovery = []
 
-  constructor(public baza: AngularFirestore) { }
+  categTraining =[]
+
+  categRecovery = []
+  
+
+
+  constructor(public baza: AngularFirestore, public storage: AngularFireStorage) { }
 
   ngOnInit(): void {
   this.baza.collection('training').valueChanges({idField:'id'}).subscribe(rez =>{
@@ -23,10 +31,17 @@ export class AdminComponent implements OnInit {
      this.recovery= rez1
   })
 
+  this.baza.collection('categT').valueChanges({idField:'id'}).subscribe(rez =>{
+    this.categTraining = rez
+  })
+
+  this.baza.collection('categR').valueChanges({idField:'id'}).subscribe(rez =>{
+    this.categRecovery = rez 
+  })
+
   }
 
   clickdeleteTraining(id:any){
-
     this.baza.collection('training').doc(id).delete().then(rez =>{
 
     })
@@ -36,6 +51,36 @@ export class AdminComponent implements OnInit {
   clickdeleteRecovery(id:any){
     this.baza.collection('recovery').doc(id).delete().then(rez =>{
 
+    })
+  }
+
+  clickdeleteCategoryRecovery(id:any){
+    this.baza.collection('categR').doc(id).delete().then(rez =>{
+    this.baza.collection('recovery', x=>x.where("categoryId", "==", id)).valueChanges({idField:'id'})
+    .pipe(take(1))
+    .subscribe(rez1 =>{
+      for (let p of rez1){
+       this.baza.collection('recovery').doc(p.id).delete().then(rez =>{
+
+       })
+      }
+        
+    })
+    })
+
+  }
+
+  clickdeleteCategoryTraining(id:any){
+    this.baza.collection('categT').doc(id).delete().then(rez =>{
+      this.baza.collection('training', x=>x.where("categoryId", "==", id)).valueChanges({idField:'id'})
+      .pipe(take(1)).
+      subscribe(rez1 =>{
+          for (let  p of rez1){
+            this.baza.collection('training').doc(p.id).delete().then(rez =>{
+
+            })
+          }
+      })
     })
   }
 

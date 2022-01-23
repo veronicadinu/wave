@@ -17,6 +17,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 
@@ -39,9 +41,10 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DonateComponent } from './donate/donate.component';
-import { CategoryComponent } from './category/category.component';
 import { CategoryRecoveryComponent } from './category-recovery/category-recovery.component';
 import { CategoryTrainingComponent } from './category-training/category-training.component';
+import { ViewRecoveryComponent } from './view-recovery/view-recovery.component';
+import { ViewTrainingComponent } from './view-training/view-training.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,9 +62,10 @@ import { CategoryTrainingComponent } from './category-training/category-training
     ForgotComponent,
     SidebarComponent,
     DonateComponent,
-    CategoryComponent,
     CategoryRecoveryComponent,
     CategoryTrainingComponent,
+    ViewRecoveryComponent,
+    ViewTrainingComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,7 +89,8 @@ import { CategoryTrainingComponent } from './category-training/category-training
     MatSidenavModule,
     FlexLayoutModule,
     MatMenuModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
 
   ],
   providers: [],

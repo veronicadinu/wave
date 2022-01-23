@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CategoryComponent } from './category.component';
+import { ViewRecoveryComponent } from './view-recovery.component';
 
-describe('CategoryComponent', () => {
-  let component: CategoryComponent;
-  let fixture: ComponentFixture<CategoryComponent>;
+describe('ViewRecoveryComponent', () => {
+  let component: ViewRecoveryComponent;
+  let fixture: ComponentFixture<ViewRecoveryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryComponent ]
+      declarations: [ ViewRecoveryComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CategoryComponent);
+    fixture = TestBed.createComponent(ViewRecoveryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

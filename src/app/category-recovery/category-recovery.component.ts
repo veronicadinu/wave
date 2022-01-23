@@ -48,12 +48,12 @@ export class CategoryRecoveryComponent implements OnInit {
      if (this.id == null){
        //add
        this.baza.collection('categR').add(this.add.value).then(rez =>{
-         this.router.navigateByUrl('/category')
+         this.router.navigateByUrl('/admin')
        })
      }else{
        //edit
        this.baza.collection('categR').doc(this.id).update(this.add.value).then(rez =>{
-        this.router.navigateByUrl('/category')
+        this.router.navigateByUrl('/admin')
        })
      }
 

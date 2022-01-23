@@ -40,13 +40,13 @@ export class CategoryTrainingComponent implements OnInit {
     if (this.id == null){
       //add
       this.baza.collection('categT').add(this.add.value).then(rez =>{
-        this.router.navigateByUrl('/category')
+        this.router.navigateByUrl('/admin')
       })
 
     }else{
      /// edit
      this.baza.collection('categT').doc(this.id).update(this.add.value).then(rez =>{
-      this.router.navigateByUrl('/category')
+      this.router.navigateByUrl('/admin')
      })
 
     }

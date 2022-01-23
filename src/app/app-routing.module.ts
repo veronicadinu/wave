@@ -5,7 +5,6 @@ import { AddTrainingComponent } from './add-training/add-training.component';
 import { AdminComponent } from './admin/admin.component';
 import { CategoryRecoveryComponent } from './category-recovery/category-recovery.component';
 import { CategoryTrainingComponent } from './category-training/category-training.component';
-import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { DonateComponent } from './donate/donate.component';
 import { ForgotComponent } from './forgot/forgot.component';
@@ -15,6 +14,8 @@ import { RecoveryComponent } from './recovery/recovery.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminGuard } from './services/admin-guard.guard';
 import { TrainingComponent } from './training/training.component';
+import { ViewRecoveryComponent } from './view-recovery/view-recovery.component';
+import { ViewTrainingComponent } from './view-training/view-training.component';
 
 const routes: Routes = [
 
@@ -96,11 +97,6 @@ const routes: Routes = [
 },
 
 {
-  path:'category',
-  component: CategoryComponent
-},
-
-{
   path:'category/recovery',
   component: CategoryRecoveryComponent
 },
@@ -118,6 +114,16 @@ const routes: Routes = [
 {
   path:'category/training/:id',
   component: CategoryTrainingComponent
+},
+
+{
+  path:'view/recovery/:id',
+  component: ViewRecoveryComponent
+},
+
+{
+  path:'view/training/:id',
+  component: ViewTrainingComponent
 }
 
 
