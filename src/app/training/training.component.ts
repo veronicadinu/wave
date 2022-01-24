@@ -31,7 +31,7 @@ export class TrainingComponent implements OnInit {
   }
 
   readTraining(){
-    this.baza.collection('training', x=>x.where("categoryId", "==", this.selectedCategory.id)).valueChanges({idField:'id'})
+    this.baza.collection('training', x=>x.where("categoryIds", "array-contains", this.selectedCategory.id)).valueChanges({idField:'id'})
     .pipe(take(1))
     .subscribe(rez1 =>{
       this.training = rez1

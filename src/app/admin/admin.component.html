@@ -56,7 +56,11 @@
                 <tbody>
                     <tr *ngFor="let t of training ">
                         <td>{{t.name}}</td>
-                        <td>{{t.categoryId}}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let c of t.categories">{{c.name}}</li>
+                            </ul>
+                        </td>
                         <td><mat-icon  routerLink="/editTraining/{{t.id}}">edit</mat-icon></td>
                         <td><mat-icon  (click)="clickdeleteTraining(t.id)">delete</mat-icon></td>
                     </tr>
@@ -127,7 +131,11 @@
                 <tbody>
                     <tr *ngFor="let r of recovery ">
                         <td>{{r.name}}</td>
-                        <td>{{r.categoryId}}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let c of r.categories">{{c.name}}</li>
+                            </ul>
+                        </td>
                         <td><mat-icon  routerLink="/editRecovery/{{r.id}}">edit</mat-icon></td>
                         <td><mat-icon  (click)="clickdeleteRecovery(r.id)">delete</mat-icon></td>
                     </tr>

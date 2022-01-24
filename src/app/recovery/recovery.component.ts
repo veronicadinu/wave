@@ -32,9 +32,10 @@ export class RecoveryComponent implements OnInit {
 
 
   readRecovery(){
-    this.baza.collection('recovery', x=>x.where("categoryId", "==", this.selectedCategory.id)).valueChanges({idField:'id'})
+    this.baza.collection('recovery', x=>x.where("categoryIds", "array-contains", this.selectedCategory.id)).valueChanges({idField:'id'})
     .pipe(take(1))
     .subscribe(rez1 =>{
+      console.log(rez1)
       this.recovery = rez1
     })
   }

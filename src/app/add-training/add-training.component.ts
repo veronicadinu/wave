@@ -18,7 +18,8 @@ export class AddTrainingComponent implements OnInit {
     text: new FormControl(),
     price: new FormControl(0),
     photo: new FormControl(),
-    categoryId: new FormControl('',[Validators.required])
+    categories: new FormControl([],[Validators.required]),
+    categoryIds: new FormControl([])
   });
 
   category: any = []
@@ -47,6 +48,9 @@ export class AddTrainingComponent implements OnInit {
   }
 
   clicksave() {
+    this.add.controls.categoryIds.setValue(
+      this.add.controls.categories.value.map(x => x.id)
+    );
     if (this.id == null) {
       // add
       this.baza.collection('training').add(this.add.value).then(rez => {
@@ -74,5 +78,9 @@ export class AddTrainingComponent implements OnInit {
 
   clickDeletePhoto() {
     this.add.controls.photo.setValue(null)
+  }
+
+  compareObjects(o1: any, o2: any): boolean {
+    return o1?.id === o2?.id;
   }
 }

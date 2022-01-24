@@ -26,10 +26,10 @@
 
         <mat-form-field style="width: 100%" appearance="fill">
           <mat-label>Select category</mat-label>
-          <mat-select formControlName="categoryId" disableRipple multiple>
+          <mat-select [compareWith]="compareObjects" formControlName="categories" disableRipple multiple>
             <mat-option *ngFor="let c of category" [value]="c">{{c.name}}</mat-option>
           </mat-select>
-          <mat-error *ngIf="add.controls.categoryId.hasError('required')" >Select Category is required</mat-error>
+          <mat-error *ngIf="add.controls.categories.hasError('required')" >Select Category is required</mat-error>
         </mat-form-field>
 
         <br>
