@@ -56,31 +56,14 @@ export class AdminComponent implements OnInit {
 
   clickdeleteCategoryRecovery(id:any){
     this.baza.collection('categR').doc(id).delete().then(rez =>{
-    this.baza.collection('recovery', x=>x.where("categoryId", "==", id)).valueChanges({idField:'id'})
-    .pipe(take(1))
-    .subscribe(rez1 =>{
-      for (let p of rez1){
-       this.baza.collection('recovery').doc(p.id).delete().then(rez =>{
 
-       })
-      }
-        
-    })
     })
 
   }
 
   clickdeleteCategoryTraining(id:any){
     this.baza.collection('categT').doc(id).delete().then(rez =>{
-      this.baza.collection('training', x=>x.where("categoryId", "==", id)).valueChanges({idField:'id'})
-      .pipe(take(1)).
-      subscribe(rez1 =>{
-          for (let  p of rez1){
-            this.baza.collection('training').doc(p.id).delete().then(rez =>{
 
-            })
-          }
-      })
     })
   }
 
