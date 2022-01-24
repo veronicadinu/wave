@@ -27,7 +27,7 @@
   <div *ngFor="let r of recovery" class="col-12 col-sm-6 col-lg-4 p-2">
     <mat-card  class="example-card">
         <mat-card-title-group>
-          <mat-card-title routerLink="/view/recovery/{{r.id}}">{{r.name}}</mat-card-title>
+          <mat-card-title style="cursor: pointer;" routerLink="/view/recovery/{{r.id}}">{{r.name}}</mat-card-title>
         </mat-card-title-group>
         <mat-card-subtitle></mat-card-subtitle>
         <mat-card-content>
