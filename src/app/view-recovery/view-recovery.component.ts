@@ -25,4 +25,12 @@ export class ViewRecoveryComponent implements OnInit {
     })
   }
 
+  getExtension(link: string) {
+    if (link == null || link === '') {
+      return null;
+    }
+    const linkFaraSemnulIntrebarii = link.substring(0, link.indexOf('?'));
+    const splitByDot = linkFaraSemnulIntrebarii.split('.')
+    return splitByDot[splitByDot.length - 1].toLowerCase();
+  }
 }

@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="">
     <button (click)="clickMeniu()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
      <mat-icon>menu</mat-icon>
    </button>
@@ -15,8 +15,5 @@
     <mat-icon>exit_to_app</mat-icon>  
     Logout
   </button>
-  <button *ngIf="user == null" routerLink="/login" mat-menu-item>
-    <mat-icon>login</mat-icon>  
-    Login
-  </button>
+  <app-login  *ngIf="user == null"></app-login>
 </mat-menu>

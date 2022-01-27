@@ -1,5 +1,5 @@
 <div class="row g-0">
-  <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
+  <div class="col-12 col-sm-8 offset-sm-2 col-lg-10 offset-lg-1">
 <form id="login" class="p-5" [formGroup]="login">
     
 
@@ -7,7 +7,7 @@
         
         <mat-error *ngIf="login.hasError('backend')">{{login.errors.backend}}</mat-error>
 
-        <mat-form-field  style="width: 100%"  class="example-full-width" appearance="fill">
+        <mat-form-field style="width: 100%"  class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
             <input formControlName="email" type="email" matInput placeholder="" value="">
            <mat-error *ngIf="login.controls.email.hasError('required')">Email is invalid</mat-error>

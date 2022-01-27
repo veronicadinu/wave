@@ -29,9 +29,11 @@
         <mat-card-title-group>
           <mat-card-title style="cursor: pointer;" routerLink="/view/recovery/{{r.id}}">{{r.name}}</mat-card-title>
         </mat-card-title-group>
-        <mat-card-subtitle></mat-card-subtitle>
+        <mat-card-subtitle>{{r.text}}</mat-card-subtitle>
         <mat-card-content>
-            <video controls style="width: 100%;" *ngIf="r.video" [src]="r.video"></video>
+            <video *ngIf="r.file && getExtension(r.file) == 'mp4'" controls style="width: 100%;" [src]="r.file"></video>
+            <img [src]="r.file" *ngIf="getExtension(r.file) == 'jpg' || getExtension(r.file) == 'png'" style="width: 100%" />
+            <a [href]="r.file" *ngIf="getExtension(r.file) == 'pdf'">Download PDF</a>
         </mat-card-content>
       </mat-card>
   </div>

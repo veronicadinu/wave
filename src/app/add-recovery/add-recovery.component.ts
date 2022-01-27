@@ -14,7 +14,7 @@ export class AddRecoveryComponent implements OnInit {
   add = new FormGroup({
     name: new FormControl(),
     text: new FormControl(),
-    video: new FormControl(),
+    file: new FormControl(),
     price: new FormControl(),
     categories: new FormControl([], [Validators.required]),
     categoryIds: new FormControl([])
@@ -61,25 +61,34 @@ export class AddRecoveryComponent implements OnInit {
 
   }
 
-  changeVideo(event: any) {
+  changeFile(event: any) {
 
     const file = event.target.files[0]
 
 
     this.storage.upload(file.name, file).then(rez => {
       rez.ref.getDownloadURL().then(link => {
-        this.add.controls.video.setValue(link);
+        this.add.controls.file.setValue(link);
       })
     })
 
   }
 
-  clickDeleteVideo() {
-    this.add.controls.video.setValue(null)
+  clickDeleteFile() {
+    this.add.controls.file.setValue(null)
   }
 
   compareObjects(o1: any, o2: any): boolean {
     return o1?.id === o2?.id;
+  }
+
+  getExtension(link: string) {
+    if (link == null || link === '') {
+      return null;
+    }
+    const linkFaraSemnulIntrebarii = link.substring(0, link.indexOf('?'));
+    const splitByDot = linkFaraSemnulIntrebarii.split('.')
+    return splitByDot[splitByDot.length - 1].toLowerCase();
   }
 
 }

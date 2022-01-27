@@ -17,7 +17,7 @@ export class AddTrainingComponent implements OnInit {
     name: new FormControl(),
     text: new FormControl(),
     price: new FormControl(0),
-    photo: new FormControl(),
+    file: new FormControl(),
     categories: new FormControl([],[Validators.required]),
     categoryIds: new FormControl([])
   });
@@ -66,21 +66,30 @@ export class AddTrainingComponent implements OnInit {
   }
 
 
-  changeImg(event: any) {
+  changeFile(event: any) {
     const file = event.target.files[0]
 
     this.storages.upload(file.name, file).then(rez => {
       rez.ref.getDownloadURL().then(link => {
-        this.add.controls.photo.setValue(link);
+        this.add.controls.file.setValue(link);
       })
     })
   }
 
-  clickDeletePhoto() {
-    this.add.controls.photo.setValue(null)
+  clickDeleteFile() {
+    this.add.controls.file.setValue(null)
   }
 
   compareObjects(o1: any, o2: any): boolean {
     return o1?.id === o2?.id;
+  }
+
+  getExtension(link: string) {
+    if (link == null || link === '') {
+      return null;
+    }
+    const linkFaraSemnulIntrebarii = link.substring(0, link.indexOf('?'));
+    const splitByDot = linkFaraSemnulIntrebarii.split('.')
+    return splitByDot[splitByDot.length - 1].toLowerCase();
   }
 }

@@ -30,13 +30,13 @@
   <div *ngFor="let t of training" class="col-12 col-sm-6 col-lg-4 p-2">
     <mat-card  class="example-card">
         <mat-card-title-group>
-          <mat-card-title routerLink="/view/training/{{t.id}}">{{t.name}}</mat-card-title>
-          <mat-card-subtitle></mat-card-subtitle>
-          <img *ngIf="t.photo" mat-card-sm-image style="object-fit: contain;" [src]="t.photo" >
-          <img *ngIf="!t.photo" mat-card-sm-image style="object-fit: contain;" src="/assets/img/training.svg" >
+          <mat-card-title style="cursor: pointer;" routerLink="/view/training/{{t.id}}">{{t.name}}</mat-card-title>
+          <mat-card-subtitle> {{t.text}}</mat-card-subtitle>
         </mat-card-title-group>
         <mat-card-content>
-         {{t.text}}
+         <video *ngIf="t.file && getExtension(t.file) == 'mp4'" controls style="width: 100%;" [src]="t.file"></video>
+            <img [src]="t.file" *ngIf="getExtension(t.file) == 'jpg' || getExtension(t.file) == 'png'" style="width: 100%" />
+            <a [href]="t.file" *ngIf="getExtension(t.file) == 'pdf'">Download PDF</a>
         </mat-card-content>
       </mat-card>
   </div>

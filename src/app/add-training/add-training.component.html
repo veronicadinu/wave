@@ -34,21 +34,22 @@
 
       <br>
 
-      <input (change)="changeImg($event)" accept="image/*" style="display: none" #inp type="file"/>
+      <input (change)="changeFile($event)"  style="display: none" #inp type="file"/>
         
       <div fxLayout="row" fxLayoutAlign="center">
-        <button type="button" (click)="inp.click()" mat-raised-button color="secondary" >Upload photo</button>
+        <button type="button" (click)="inp.click()" mat-raised-button color="secondary" >Upload </button>
       </div>
 
       <br />
-      <div  *ngIf="add.controls.photo.value != null" fxLayout="row" fxLayoutAlign="center">
+      <div  *ngIf="add.controls.file.value != null" fxLayout="row" fxLayoutAlign="center">
         <mat-card style="width: 180px !important">
           <mat-card-content>
-            <img [src]="add.controls.photo.value" style="width: 150px; height: auto" />
+            <video *ngIf="getExtension(add.controls.file.value) == 'mp4'" style="width: 150px; height: auto" [src]="add.controls.file.value"></video>
+            <img *ngIf="getExtension(add.controls.file.value) == 'jpg' || getExtension(add.controls.file.value) == 'png'" style="width: 150px; height: auto" [src]="add.controls.file.value" />
+            <a *ngIf="getExtension(add.controls.file.value) == 'pdf'" [href]="add.controls.file.value" target="_blank">Open PDF</a>
           </mat-card-content>
-
           <mat-card-actions>
-            <button (click)="clickDeletePhoto()" color="warn" mat-icon-button>
+            <button (click)="clickDeleteFile()" color="warn" mat-icon-button>
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card-actions>
