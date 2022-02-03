@@ -18,6 +18,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSelectModule} from '@angular/material/select';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { StripeModule } from "stripe-angular"
 
 
 
@@ -45,6 +46,7 @@ import { CategoryRecoveryComponent } from './category-recovery/category-recovery
 import { CategoryTrainingComponent } from './category-training/category-training.component';
 import { ViewRecoveryComponent } from './view-recovery/view-recovery.component';
 import { ViewTrainingComponent } from './view-training/view-training.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +68,7 @@ import { ViewTrainingComponent } from './view-training/view-training.component';
     CategoryTrainingComponent,
     ViewRecoveryComponent,
     ViewTrainingComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -90,7 +93,8 @@ import { ViewTrainingComponent } from './view-training/view-training.component';
     FlexLayoutModule,
     MatMenuModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    StripeModule.forRoot("...YOUR-STRIPE-KEY-HERE...") 
 
   ],
   providers: [],

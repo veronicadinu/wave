@@ -17,6 +17,8 @@ export class AdminComponent implements OnInit {
   categTraining =[]
 
   categRecovery = []
+
+  emails = []
   
 
 
@@ -37,6 +39,10 @@ export class AdminComponent implements OnInit {
 
   this.baza.collection('categR').valueChanges({idField:'id'}).subscribe(rez =>{
     this.categRecovery = rez 
+  })
+
+  this.baza.collection('emails').valueChanges({idField:'id'}).subscribe(rez =>{
+    this.emails = rez 
   })
 
   }
@@ -64,6 +70,13 @@ export class AdminComponent implements OnInit {
   clickdeleteCategoryTraining(id:any){
     this.baza.collection('categT').doc(id).delete().then(rez =>{
 
+    })
+  }
+
+
+  clickdeleteEmails(id:any){
+    this.baza.collection('emails').doc(id).delete().then(rez =>{
+      
     })
   }
 

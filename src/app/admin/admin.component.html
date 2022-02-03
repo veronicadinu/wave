@@ -155,6 +155,43 @@
     </mat-tab>
 
 
+    <mat-tab label="Emails"> 
+
+        <div style="height: 100%" fxLayout="column">
+        
+        <div class="table-responsive p-2" fxFlex >
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Delete</th>
+                        
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    <tr *ngFor="let e of emails ">
+                        <td>{{e.fromName}}</td>
+                        <td><a href="mailto:e.from">{{e.from}}</a></td>
+                        <td><a href="tel:+e.tel">{{e.tel}}</a></td>
+                        <td>{{e.subject}}</td>
+                        <td>{{e.body}}</td>
+                        <td><mat-icon (click)="clickdeleteEmails(e.id)">delete</mat-icon></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+     </div>
+    
+        
+    </mat-tab>
+
 
 
     

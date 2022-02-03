@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StripeScriptTag } from 'stripe-angular';
 
 @Component({
   selector: 'app-donate',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DonateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private stripeScriptTag: StripeScriptTag) {
+    if (!this.stripeScriptTag.StripeInstance) {
+      this.stripeScriptTag.setPublishableKey('');
+    }
+   }
+
+   
 
   ngOnInit(): void {
   }

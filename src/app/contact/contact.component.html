@@ -19,27 +19,27 @@
   
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Name</mat-label>
-        <input formControlName="name" type="text" matInput placeholder="" value="">
-        <mat-error *ngIf="contact.controls.name.hasError('required')" >Name is required</mat-error>
+        <input formControlName="fromName" type="text" matInput placeholder="" value="">
+        <mat-error *ngIf="contact.controls.fromName.hasError('required')" >Name is required</mat-error>
       </mat-form-field>
   
   
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input formControlName="email" type="email" matInput placeholder="" value="">
-        <mat-error *ngIf="contact.controls.email.hasError('required')" >Email is required!</mat-error>
-        <mat-error *ngIf="contact.controls.email.hasError('email')" >Email is invalid</mat-error>
+        <input formControlName="from" type="email" matInput placeholder="" value="">
+        <mat-error *ngIf="contact.controls.from.hasError('required')" >Email is required!</mat-error>
+        <mat-error *ngIf="contact.controls.from.hasError('email')" >Email is invalid</mat-error>
       </mat-form-field>
   
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Phone</mat-label>
-        <input formControlName="tel" type="number" matInput placeholder="" value="">
+        <input formControlName="tel" type="text" matInput placeholder="" value="">
       </mat-form-field>
   
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Write a messagess</mat-label>
-        <textarea formControlName="msg"  rows="4" matInput placeholder="" ></textarea>
-        <mat-error *ngIf="contact.controls.msg.hasError('required')" >Massagess is required!</mat-error>
+        <textarea formControlName="body"  rows="4" matInput placeholder="" ></textarea>
+        <mat-error *ngIf="contact.controls.body.hasError('required')" >Massagess is required!</mat-error>
   
       </mat-form-field>
   

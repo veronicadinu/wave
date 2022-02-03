@@ -98,7 +98,8 @@ const routes: Routes = [
 
 {
   path:'category/recovery',
-  component: CategoryRecoveryComponent
+  component: CategoryRecoveryComponent,
+  canActivate: [AdminGuard]
 },
 
 {
