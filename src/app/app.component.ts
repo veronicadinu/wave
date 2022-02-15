@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
 
     this.router.events.subscribe(e => {
       if (e instanceof NavigationEnd) {
-        if (e.url == '/login' || e.url == '/register' || e.url == '/forgot') {
+        console.log(e.url);
+        if (e.url == '/login' || e.url == '/register' || e.url == '/forgot' || e.url == '/' || e.url == '/#!') {
           this.areBarsHidden = true;
         } else {
           this.areBarsHidden = false;

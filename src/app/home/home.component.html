@@ -1,16 +1,27 @@
-<div style="background-color: white;" class="container">
-    <div class="row">
-      <div class="col-sm">
-        <img style="width: 100%; height: 100%; object-fit: contain;" src="assets/img/training.png" alt="">
-        <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-            <button routerLink="/training" mat-raised-button color="primary">Training</button>
+        <!-- Background Video-->
+        <video class="bg-video" playsinline="playsinline" loop muted autoplay oncanplay="this.play()" onloadedmetadata="this.muted = true"><source src="/assets/mp4/tr.mp4" type="video/mp4" />
+        </video>
+        <!-- Masthead-->
+        <div class="masthead">
+            <div class="masthead-content text-white">
+                <div class="container-fluid px-4 px-lg-0">
+                    <h1 class="fst-italic lh-1 mb-4">Our Wave for wellbeing</h1>
+                    <p class="mb-5">
+                      Traning or Recovery what do you need more? Here with us the opportunity to choose what you really need.</p>
+                    <!-- * * * * * * * * * * * * * * *-->
+                   <div class="row ">
+                    <div class="col-12 col-sm-6 d-flex flex-column-reverse mb-2"><button routerLink="/training" class="btn btn-primary " id="submitButton" type="submit">Traning</button></div>
+                    <div class="col-12 col-sm-6 d-flex flex-column-reverse mb-2"><button routerLink="/recovery" class="btn btn-primary " id="submitButton" type="submit">Recovery</button></div>
+                   </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-sm">
-        <img style="width: 100%; height: 100%; object-fit: contain;"  src="assets/img/recovery3.jpg" alt="">
-        <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-        <button routerLink="/recovery" mat-raised-button color="primary">Recovery</button>
+        <!-- Social Icons-->
+        <!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
+        <div class="social-icons">
+            <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
+                <a class="btn btn-dark m-3" href="#!"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-dark m-3" href="#!"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark m-3" href="#!"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-      </div>
-
-  </div>
